@@ -1,12 +1,5 @@
 <div id="status_div">
 
-  <div class='row-fluid'>&nbsp;</div>
-  <div class='row-fluid'>
-  	<% if !@ref_info.blank? %>
-	  	Reference No:  <b><%= @ref_info %></b>
-	  <% end %>
-  </div>
-  <div class='row-fluid'>&nbsp;</div>
   <div class='row-fluid'>
   	<%= @status_info %>
   	<% Rails.logger.debug "view txn_status="+@txn_status %>
@@ -21,6 +14,10 @@
 
 	<script type="text/javascript">
   	txn_status = '<%=@txn_status%>';
+
+    if($('#ref_info').val().length == 0){
+      $('#ref_info').val('<%=@ref_info%>');
+    };
 	</script>
 </div>
 

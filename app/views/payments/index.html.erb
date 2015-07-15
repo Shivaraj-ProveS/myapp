@@ -13,6 +13,12 @@
   				{ id: 'card_pay_btn', class: "btn btn-lg btn-primary", :remote => true } %>
   </div>
   
+  <div class='row-fluid'>&nbsp;</div>
+  <div class='row-fluid'>
+    Reference No: <span class='text-center'><b><%= text_field_tag :ref_info, '', { readonly: true, size: 8 } %></b></span>
+  </div>
+  <div class='row-fluid'>&nbsp;</div>
+
   <%= render partial: 'status_grid', locals: { ref_id: @ref_id } %>
 
 </div>
@@ -22,7 +28,7 @@
   var txn_status;
 
   $("#card_pay_btn").on("click", function() {
-    setTimeout(checkStatus, 5000);
+    setTimeout(checkStatus, 2000);
     // alert("payment button clicked");
     $(this).text('Processing');
     $(this).attr('disabled', true);
@@ -36,7 +42,7 @@
   		$.ajax({
   			url: "payments/check_status", type: "get"
   		});
-	  	setTimeout(checkStatus, 5000);
+	  	setTimeout(checkStatus, 2000);
 	  } else if (txn_status == 'Complete') {
   		// alert("invoke payments/complete");
   		$.ajax({
