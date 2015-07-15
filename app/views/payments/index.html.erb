@@ -1,0 +1,50 @@
+
+
+<div class="text-center jumbotron">
+
+  <h1> Welcome to AP Gov Online </h1>
+
+  <h2> Here, add all the text that are required.... </h2>
+
+	<div class='row-fluid'>
+  	<%= link_to "Pay with Cash", '#', { id: 'cash_pay_btn', class: 'btn btn-lg btn-primary'} %>
+  	&nbsp;
+  	<%= link_to 'Pay with Card', { :action => 'card_pay' }, 
+  				{ id: 'card_pay_btn', class: "btn btn-lg btn-primary", :remote => true } %>
+  </div>
+  
+  <%= render partial: 'status_grid', locals: { ref_id: @ref_id } %>
+
+</div>
+
+<script type="text/javascript">
+
+  var txn_status;
+
+  $("#card_pay_btn").on("click", function() {
+    setTimeout(checkStatus, 1000);
+    // alert("payment button clicked");
+    $(this).text('Processing');
+    $(this).attr('disabled', true);
+    $('#cash_pay_btn').attr('disabled', true);
+  });
+
+	function checkStatus () {
+  	
+  	if (txn_status == 'In Process') {
+  		// alert("invoke payments/check_status");
+  		$.ajax({
+  			url: "payments/check_status", type: "get"
+  		});
+	  	setTimeout(checkStatus, 1000);
+	  } else if (txn_status == 'Complete') {
+  		// alert("invoke payments/complete");
+  		$.ajax({
+  			url: "payments/complete", type: "get"
+  		});
+  		$("#card_pay_btn").text("Complete");
+  		// $("#card_pay_btn").attr("disabled", false);
+		};
+	};
+  
+</script>
