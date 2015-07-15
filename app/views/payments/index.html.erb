@@ -22,7 +22,7 @@
   var txn_status;
 
   $("#card_pay_btn").on("click", function() {
-    setTimeout(checkStatus, 1000);
+    setTimeout(checkStatus, 5000);
     // alert("payment button clicked");
     $(this).text('Processing');
     $(this).attr('disabled', true);
@@ -36,7 +36,7 @@
   		$.ajax({
   			url: "payments/check_status", type: "get"
   		});
-	  	setTimeout(checkStatus, 1000);
+	  	setTimeout(checkStatus, 5000);
 	  } else if (txn_status == 'Complete') {
   		// alert("invoke payments/complete");
   		$.ajax({
