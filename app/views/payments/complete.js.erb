@@ -1,1 +1,1 @@
-$("#status_div").html("<%= escape_javascript(render partial: 'status_grid', locals: { ref_info: @ref_info, status_info: @status_info, txn_status: @txn_status } ) %>");
+$("#status_div").html("<%= escape_javascript(render partial: 'status_grid', locals: { ref_info: @ref_info, status_info: @status_info, txn_status: @txn_status, complete: @complete } ) %>");

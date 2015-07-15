@@ -42,9 +42,10 @@ class PaymentsController < ApplicationController
 
 	def complete
 		@ref_info = @@ref_info
-		@status_info = "Your payment was processed. < Status: #{@@pmt_status} Amt: #{@@amount.to_s}"
+		@status_info = "Your payment was processed. < Status: #{@@pmt_status} Amt: Rs. #{@@amount.to_s}"
 		@status_info << " Card: #{@@card_type}/#{@@card_brand} Device: #{@@device_id}>"
 		@txn_status = @@txn_status
+		@complete = true
     respond_to do |format|
       format.js
     end
