@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'payments/check_status', to: 'payments#check_status', as: 'check_status'
   get 'payments/complete', to: 'payments#complete', as: 'complete'
   get 'payments/update_status', to: 'payments#update_status', as: 'update_status'
-
+  post 'payments/txn_callback', to: 'payments#txn_callback', as: 'txn_callback'
   # Example resource route with options:
   #   resources :products do
   #     member do
