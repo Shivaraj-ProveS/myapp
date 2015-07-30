@@ -15,4 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
-Gemfile.lock
+/Gemfile.lock
+/nohup.out
