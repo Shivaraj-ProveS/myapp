@@ -14,12 +14,15 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :payments, only: [:index]
-  get 'payments/card_pay', to: 'payments#card_pay', as: 'card_pay'
-  get 'payments/check_status', to: 'payments#check_status', as: 'check_status'
-  get 'payments/complete', to: 'payments#complete', as: 'complete'
-  get 'payments/update_status', to: 'payments#update_status', as: 'update_status'
-  post 'payments/txn_callback', to: 'payments#txn_callback', as: 'txn_callback'
+  resources :aponline, only: [:index]
+  get 'aponline/card_pay', to: 'aponline#card_pay', as: 'card_pay'
+  get 'aponline/check_status', to: 'aponline#check_status', as: 'check_status'
+  get 'aponline/complete', to: 'aponline#complete', as: 'complete'
+  get 'aponline/update_status', to: 'aponline#update_status', as: 'update_status'
+  get 'aponline/txn_callback', to: 'aponline#txn_callback', as: 'txn_callback'
+  
+  get 'pramerica/policy_details', to: 'pramerica#policy_details', as: 'policy_details'
+  
   # Example resource route with options:
   #   resources :products do
   #     member do
