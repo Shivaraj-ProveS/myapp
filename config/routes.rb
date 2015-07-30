@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   get 'aponline/check_status', to: 'aponline#check_status', as: 'check_status'
   get 'aponline/complete', to: 'aponline#complete', as: 'complete'
   get 'aponline/update_status', to: 'aponline#update_status', as: 'update_status'
-  get 'aponline/txn_callback', to: 'aponline#txn_callback', as: 'txn_callback'
+  post 'aponline/txn_callback', to: 'aponline#txn_callback', as: 'txn_callback'
   
-  get 'pramerica/policy_details', to: 'pramerica#policy_details', as: 'policy_details'
+  post 'pramerica/policy_details', to: 'pramerica#policy_details', as: 'policy_details'
   
   # Example resource route with options:
   #   resources :products do

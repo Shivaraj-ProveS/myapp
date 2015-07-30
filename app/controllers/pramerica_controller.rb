@@ -22,10 +22,10 @@ class PramericaController < ApplicationController
         @policy_status = "active"
         @payment_frequency = "monthly"
 
-        msg = { :status => "ok", :plan_name => @plan_name, :policy_holder_name => @policy_holder_name, 
-                :premium_due_date => @premium_due_date, :premium_amount => @premium_amount, :service_tax => @service_tax,
-                :total_premium => @total_premium, :interest_amount => @interest_amount, :clear_amount => @clear_amount,
-                :amount_payable => @amount_payable, :payment_frequency => @payment_frequency
+        msg = { :status => "ok", :user_name => @user_name, :policy_no => @policy_no, :plan_name => @plan_name, 
+                :policy_holder_name => @policy_holder_name, :premium_due_date => @premium_due_date, :premium_amount => @premium_amount, 
+                :service_tax => @service_tax, :total_premium => @total_premium, :interest_amount => @interest_amount, 
+                :clear_amount => @clear_amount, :amount_payable => @amount_payable, :payment_frequency => @payment_frequency
         }
         
         Rails.logger.debug msg.to_json
