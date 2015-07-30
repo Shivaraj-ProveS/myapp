@@ -9,7 +9,7 @@ class PramericaController < ApplicationController
 		@policy_no = params["policy_no"]
 		@user_name = params["user_name"]
 
-
+        @success = true
         @plan_name = "Pramerica 101"
         @policy_holder_name = "Holder 123"
         @premium_due_date = "12/08/2015"
@@ -22,7 +22,7 @@ class PramericaController < ApplicationController
         @policy_status = "active"
         @payment_frequency = "monthly"
 
-        msg = { :status => "ok", :user_name => @user_name, :policy_no => @policy_no, :plan_name => @plan_name, 
+        msg = { :success => @success, :user_name => @user_name, :policy_no => @policy_no, :plan_name => @plan_name, 
                 :policy_holder_name => @policy_holder_name, :premium_due_date => @premium_due_date, :premium_amount => @premium_amount, 
                 :service_tax => @service_tax, :total_premium => @total_premium, :interest_amount => @interest_amount, 
                 :clear_amount => @clear_amount, :amount_payable => @amount_payable, :payment_frequency => @payment_frequency
