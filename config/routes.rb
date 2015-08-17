@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post 'aponline/txn_callback', to: 'aponline#txn_callback', as: 'txn_callback'
   
   post 'pramerica/policy_details', to: 'pramerica#policy_details', as: 'policy_details'
+  get 'pramerica/load_wsdl', to: 'pramerica#load_wsdl', as: 'load_wsdl'
   
   # Example resource route with options:
   #   resources :products do
